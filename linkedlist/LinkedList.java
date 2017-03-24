@@ -14,6 +14,46 @@ public class LinkedList {
         }
     }
 
+    /**
+     * Reverse the singly linked list in-place.
+     *
+     * @param head - The head of the supplied linked list.
+     * @return - The head of the reversed linked list.
+     */
+    public static Node reverse(Node head) {
+        System.out.println("\n\n Node reverse(Node head)");
+
+        if (head == null) {
+            return null;
+        }
+
+        Node runner = head;
+        Node predecessor = null;
+        Node successor = head;
+
+        successor = successor.next;
+
+        if (successor == null) {
+            return head;
+        }
+
+        while (successor != null) {
+            runner.next = predecessor;
+            predecessor = runner;
+            runner = successor;
+            successor = successor.next;
+        }
+        runner.next = predecessor;
+
+        return runner;
+    }
+
+    /**
+     * Find the middle node of the singly linked list.
+     *
+     * @param head - The head of the supplied linked list.
+     * @return - The middle node of the singly linked list;  null if the supplied linked list is null.
+     */
     public static Node findMiddleNode(Node head) {
         System.out.println("\n\n Node findMiddleNode(Node head)");
 
@@ -38,6 +78,12 @@ public class LinkedList {
         return slow;
     }
 
+    /**
+     * Find the length of the singly linked list.
+     *
+     * @param head - The head of the supplied linked list.
+     * @return - Length of the supplied singly linked list; zero if the supplied singly linked list is null.
+     */
     public static int getListLength(Node head) {
         System.out.println("\n\n int getListLength(Node head)");
 
@@ -56,6 +102,12 @@ public class LinkedList {
         return count;
     }
 
+    /**
+     * Display the singly linked list.
+     * Big-Oh: O(n)
+     *
+     * @param head - The head of the supplied linked list.
+     */
     public static void displayList(Node head) {
         System.out.println("\n\n void displayList(Node head)");
 
@@ -71,6 +123,14 @@ public class LinkedList {
         }
     }
 
+    /**
+     * Print the following for the supplied singly linked list:
+     *   1) Display the singly linked list
+     *   2) Display the length of the singly linked list
+     *   3) Display the middle node of the singly linked list
+     *
+     * @param head - The head of the supplied linked list.
+     */
     public static void printList(Node head) {
         System.out.println("\n\n void printList(Node head)");
 
@@ -92,6 +152,12 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
+        testCase1();
+    }
+
+    public static void testCase1() {
+        System.out.println("\n\n void testCase1()");
+
         Node one = new Node(1);
         Node two = new Node(2);
         Node three = new Node(3);
@@ -121,5 +187,9 @@ public class LinkedList {
 
         Node head = one;
         printList(head);
+
+        Node reversedList = reverse(head);
+        System.out.println("\n\n Reversed list");
+        printList(reversedList);
     }
 }
