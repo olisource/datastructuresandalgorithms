@@ -7,3 +7,4 @@ Data structures and Algorithms:
 5. Recursion
 6. Dynamic Programming
 7. Graphs
+8. Map
