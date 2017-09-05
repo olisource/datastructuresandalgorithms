@@ -5,3 +5,5 @@ Data structures and Algorithms:
 3. Strings
 4. Trees
 5. Recursion
+6. Dynamic Programming
+7. Graphs
